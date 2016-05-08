@@ -61,5 +61,8 @@
   },
   "scripts": {
     "test": "gulp test"
+  },
+  "dependencies": {
+    "gulp-install": "^0.6.0"
   }
 }
