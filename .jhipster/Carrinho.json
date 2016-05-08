@@ -1,0 +1,15 @@
+{
+  "relationships": [],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "clienteId",
+      "fieldType": "Long"
+    }
+  ],
+  "changelogDate": "20160508113736",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "javadoc": "The Employee entity."
+}
