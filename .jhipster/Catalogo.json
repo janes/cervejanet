@@ -1,0 +1,28 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "produto",
+      "otherEntityName": "produto",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "catalogo"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "nome",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "descricao",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20160508011204",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "no",
+  "javadoc": "The Employee entity."
+}

@@ -1,0 +1,68 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myProdutoLabel">Create or edit a Produto</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.produto.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.produto.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_nome">Nome</label>
+            <input type="text" class="form-control" name="nome" id="field_nome"
+                    ng-model="vm.produto.nome"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_descricao">Descricao</label>
+            <input type="text" class="form-control" name="descricao" id="field_descricao"
+                    ng-model="vm.produto.descricao"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_preco">Preco</label>
+            <input type="number" class="form-control" name="preco" id="field_preco"
+                    ng-model="vm.produto.preco"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_quantidade">Quantidade</label>
+            <input type="number" class="form-control" name="quantidade" id="field_quantidade"
+                    ng-model="vm.produto.quantidade"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_categoria">Categoria</label>
+            <input type="text" class="form-control" name="categoria" id="field_categoria"
+                    ng-model="vm.produto.categoria"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_imagem">Imagem</label>
+            <input type="text" class="form-control" name="imagem" id="field_imagem"
+                    ng-model="vm.produto.imagem"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label for="field_catalogo">Catalogo</label>
+            <select class="form-control" id="field_catalogo" name="catalogo" ng-model="vm.produto.catalogo" ng-options="catalogo as catalogo.id for catalogo in vm.catalogos track by catalogo.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

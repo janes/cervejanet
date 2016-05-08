@@ -1,0 +1,47 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "catalogo",
+      "otherEntityName": "catalogo",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "nome",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "descricao",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "preco",
+      "fieldType": "Double"
+    },
+    {
+      "fieldId": 4,
+      "fieldName": "quantidade",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldId": 5,
+      "fieldName": "categoria",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 6,
+      "fieldName": "imagem",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20160508011205",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass"
+}
