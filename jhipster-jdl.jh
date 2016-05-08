@@ -1,0 +1,37 @@
+/**
+ * The Employee entity.
+ */
+entity Catalogo {
+	nome String,
+	descricao String
+}
+
+entity Produto {
+	nome String,
+	descricao String,
+	preco Double,
+	quantidade Integer,
+	categoria String,
+	imagem String
+}
+
+relationship OneToMany {
+	/**
+	* A relationship
+	*/
+	Catalogo{produto} to
+	/**
+	* Another side of the same relationship
+	*/
+	Produto
+}
+
+paginate Produto with pagination
+
+dto Catalogo with mapstruct
+
+service Catalogo with serviceClass
+
+service Produto with serviceClass
+
+	
