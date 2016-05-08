@@ -1,17 +1,19 @@
 <div>
     <h2>Lista de Produtos</h2>
     <jhi-alert></jhi-alert>
+    <br/>
     <div class="table-responsive">
         <table class="jh-table table table-striped">
             <tbody>
                 <tr ng-repeat="produto in vm.produtos track by produto.id">
-                    <td><a ui-sref="produto-detail({id:produto.id})">{{produto.id}}</a></td>
                     <td>{{produto.nome}}</td>
-                    <td>{{produto.descricao}}</td>
-                    <td>{{produto.preco}}</td>
-                    <td>{{produto.quantidade}}</td>
-                    <td>{{produto.categoria}}</td>
-                    <td>{{produto.imagem}}</td>
+                    <td><img ng-src={{produto.imagem}} width="300" height="300" /></td>
+                     <td>{{produto.preco}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                        </div>
+                    </td>
+                    <td><a ui-sref="home-detail({id:produto.id})">{{produto.id}}</a></td>
                 </tr>
             </tbody>
         </table>
