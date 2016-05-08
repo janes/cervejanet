@@ -1,6 +1,12 @@
 /**
  * The Employee entity.
  */
+ 
+ entity Carrinho {
+	clienteId Long
+}
+ 
+ 
 entity Catalogo {
 	nome String,
 	descricao String
