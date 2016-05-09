@@ -11,4 +11,6 @@
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="classpath:config/liquibase/changelog/20160508011205_added_entity_constraints_Produto.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+	
+	<include file="classpath:config/liquibase/changelog/20160508113736_added_produto_data.xml" relativeToChangelogFile="false"/>
 </databaseChangeLog>

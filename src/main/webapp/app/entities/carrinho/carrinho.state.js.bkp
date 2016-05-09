@@ -11,7 +11,7 @@
         $stateProvider
         .state('carrinho', {
             parent: 'entity',
-            url: '/carrinho/{id}',
+            url: '/carrinho',
             data: {
                 authorities: ['ROLE_USER'],
                 pageTitle: 'Carrinhos'
@@ -24,9 +24,6 @@
                 }
             },
             resolve: {
-                entity: ['$stateParams', 'Carrinho', function($stateParams, Carrinho) {
-                    return Carrinho.get({id : $stateParams.id});
-                }]
             }
         })
         .state('carrinho-detail', {

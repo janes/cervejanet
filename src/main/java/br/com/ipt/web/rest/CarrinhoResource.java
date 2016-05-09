@@ -81,7 +81,7 @@ public class CarrinhoResource {
      *
      * @return the ResponseEntity with status 200 (OK) and the list of carrinhos in body
      */
-    @RequestMapping(value = "/carrinhos",
+    /*@RequestMapping(value = "/carrinhos",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
@@ -89,7 +89,7 @@ public class CarrinhoResource {
         log.debug("REST request to get all Carrinhos");
         List<Carrinho> carrinhos = carrinhoRepository.findAll();
         return carrinhos;
-    }
+    }*/
 
     /**
      * GET  /carrinhos/:id : get the "id" carrinho.

@@ -31,22 +31,17 @@
                     <ul class="dropdown-menu" uib-dropdown-menu>
                         <li ui-sref-active="active" >
                             <a ui-sref="catalogo" ng-click="vm.collapseNavbar()">
-                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span class="glyphicon glyphicon"></span>&nbsp;
                                 <span >Catalogo</span>
                             </a>
                         </li>
                         <li ui-sref-active="active" >
                             <a ui-sref="produto" ng-click="vm.collapseNavbar()">
-                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span class="glyphicon glyphicon"></span>&nbsp;
                                 <span >Produto</span>
                             </a>
                         </li>
-                        <li ui-sref-active="active" >
-                            <a ui-sref="carrinho" ng-click="vm.collapseNavbar()">
-                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                                <span >Carrinho</span>
-                            </a>
-                        </li>
+                       
                         <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                     </ul>
                 </li>
@@ -159,6 +154,11 @@
                         </li>
                     </ul>
                 </li>
+            	 <li ui-sref-active="active" >
+                            <a ui-sref="carrinho" ng-click="vm.collapseNavbar()"  class="btn btn-default btn-sm">
+                               <span class="glyphicon glyphicon-shopping-cart"> Carrinho</span>
+                            </a>
+                        </li>
             </ul>
         </div>
     </div>

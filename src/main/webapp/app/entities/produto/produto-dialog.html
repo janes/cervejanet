@@ -45,9 +45,14 @@
         </div>
         <div class="form-group">
             <label class="control-label" for="field_imagem">Imagem</label>
-            <input type="text" class="form-control" name="imagem" id="field_imagem"
-                    ng-model="vm.produto.imagem"
-                     />
+            <input type="url" class="form-control" name="imagem" id="field_imagem"
+                    ng-model="vm.produto.imagem" ng-change="update()"  />
+            <div class="row">
+		  <div class="col-sm-6 col-md-4">
+		    <div class="thumbnail center-block">
+		      <img ng-src={{vm.produto.imagem}} ng-alt={{vm.produto.nome}}>
+		    </div>
+		  </div>
         </div>
 
         <div class="form-group">

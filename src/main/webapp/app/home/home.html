@@ -1,21 +1,40 @@
 <div>
-    <h2>Lista de Produtos</h2>
-    <jhi-alert></jhi-alert>
-    <br/>
-    <div class="table-responsive">
-        <table class="jh-table table table-striped">
-            <tbody>
-                <tr ng-repeat="produto in vm.produtos track by produto.id">
-                    <td>{{produto.nome}}</td>
-                    <td><img ng-src={{produto.imagem}} width="300" height="300" /></td>
-                     <td>{{produto.preco}}</td>
-                    <td class="text-right">
-                        <div class="btn-group flex-btn-group-container">
-                        </div>
-                    </td>
-                    <td><a ui-sref="home-detail({id:produto.id})">{{produto.id}}</a></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+	<h2>Lista de Produtos</h2>
+	<jhi-alert></jhi-alert>
+	<br />
+
+	<ul class="media-list">
+		<li class="media"
+			ng-repeat="produto in vm.produtos track by produto.id">
+
+
+			<div class="row">
+				<div class="col-sm-6 col-md-4">
+
+					<div class="thumbnail">
+						<h3>{{produto.nome}}</h3>
+						<img ng-src={{produto.imagem}}>
+						<div class="caption">
+
+							<h2>R$ {{produto.preco}}</h2>
+							<p>
+								<a href="#" class="btn btn-primary" role="button">Adicionar
+									no Carrinho</a>
+							</p>
+
+
+							<button type="submit" ng-click="home.addToCart(produto.id)"
+								ui-sref="carrinho({id:produto.id})" class="btn btn-success">Adicionar
+								no Carrinho</button>
+								
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</li>
+	</ul>
+
 </div>
