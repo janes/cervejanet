@@ -21,6 +21,11 @@ entity Produto {
 	imagem String
 }
 
+entity ItemPedido {
+	quantidade Integer,
+	preco Double
+}
+
 relationship OneToMany {
 	/**
 	* A relationship
@@ -30,6 +35,21 @@ relationship OneToMany {
 	* Another side of the same relationship
 	*/
 	Produto
+}
+
+relationship OneToMany {
+	/**
+	* A relationship
+	*/
+	Carrinho{itemPedido} to
+	/**
+	* Another side of the same relationship
+	*/
+	ItemPedido
+}
+
+relationship OneToOne {
+  ItemPedido{produto} to Produto
 }
 
 paginate Produto with pagination
