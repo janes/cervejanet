@@ -1,4 +1,4 @@
-<div>
+<div >
 	<h2>Lista de Produtos</h2>
 	<jhi-alert></jhi-alert>
 	<br />
@@ -18,13 +18,13 @@
 
 							<h2>R$ {{produto.preco}}</h2>
 							<p>
-								<a href="#" class="btn btn-primary" role="button">Adicionar
+								<a href="#" class="btn btn-primary" ng-click="addToCart(produto.id)" role="button">Adicionar
 									no Carrinho</a>
 							</p>
 
 
-							<button type="submit" ng-click="home.addToCart(produto.id)"
-								ui-sref="carrinho({id:produto.id})" class="btn btn-success">Adicionar
+							<button type="submit" ng-click="addToCart(produto.id)"
+								 class="btn btn-success">Adicionar
 								no Carrinho</button>
 								
 

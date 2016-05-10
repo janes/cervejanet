@@ -15,6 +15,10 @@
             vm.carrinho = result;
         });
         $scope.$on('$destroy', unsubscribe);
+        
+        $scope.addToCart = function(product_id) {
+          console.log(product_id)
+        };
 
     }
 })();
