@@ -1,13 +1,13 @@
 <div>
-    <h2>Carrinhos</h2>
+    <h2>Item Pedidos</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
-                <button class="btn btn-primary" ui-sref="carrinho.new" >
+                <button class="btn btn-primary" ui-sref="item-pedido.new" >
                     <span class="glyphicon glyphicon-plus"></span>
                     <span >
-                        Create new Carrinho
+                        Create new Item Pedido
                     </span>
                 </button>
             </div>
@@ -19,30 +19,40 @@
             <thead>
                 <tr>
                     <th><span>ID</span></th>
-                    <th><span>Cliente Id</span></th>
+                    <th><span>Quantidade</span></th>
+                    <th><span>Preco</span></th>
+                    <th><span>Carrinho</span></th>
+                    <th><span>Produto</span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="carrinho in vm.carrinhos track by carrinho.id">
-                    <td><a ui-sref="carrinho-detail({id:carrinho.id})">{{carrinho.id}}</a></td>
-                    <td>{{carrinho.clienteId}}</td>
+                <tr ng-repeat="itemPedido in vm.itemPedidos track by itemPedido.id">
+                    <td><a ui-sref="item-pedido-detail({id:itemPedido.id})">{{itemPedido.id}}</a></td>
+                    <td>{{itemPedido.quantidade}}</td>
+                    <td>{{itemPedido.preco}}</td>
+                    <td>
+                        <a ui-sref="carrinho-detail({id:itemPedido.carrinho.id})">{{itemPedido.carrinho.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="produto-detail({id:itemPedido.produto.id})">{{itemPedido.produto.id}}</a>
+                    </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
-                                    ui-sref="carrinho-detail({id:carrinho.id})"
+                                    ui-sref="item-pedido-detail({id:itemPedido.id})"
                                     class="btn btn-info btn-sm">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                                 <span class="hidden-xs hidden-sm"></span>
                             </button>
                             <button type="submit"
-                                    ui-sref="carrinho.edit({id:carrinho.id})"
+                                    ui-sref="item-pedido.edit({id:itemPedido.id})"
                                     class="btn btn-primary btn-sm">
                                 <span class="glyphicon glyphicon-pencil"></span>
                                 <span class="hidden-xs hidden-sm"></span>
                             </button>
                             <button type="submit"
-                                    ui-sref="carrinho.delete({id:carrinho.id})"
+                                    ui-sref="item-pedido.delete({id:itemPedido.id})"
                                     class="btn btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-xs hidden-sm"></span>

@@ -9,116 +9,116 @@
 
     function stateConfig($stateProvider) {
         $stateProvider
-        .state('catalogo', {
+        .state('item-pedido', {
             parent: 'entity',
-            url: '/catalogo',
+            url: '/item-pedido',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'Catalogos'
+                pageTitle: 'ItemPedidos'
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/entities/catalogo/catalogos.html',
-                    controller: 'CatalogoController',
+                    templateUrl: 'app/entities/item-pedido/item-pedidos.html',
+                    controller: 'ItemPedidoController',
                     controllerAs: 'vm'
                 }
             },
             resolve: {
             }
         })
-        .state('catalogo-detail', {
+        .state('item-pedido-detail', {
             parent: 'entity',
-            url: '/catalogo/{id}',
+            url: '/item-pedido/{id}',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'Catalogo'
+                pageTitle: 'ItemPedido'
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/entities/catalogo/catalogo-detail.html',
-                    controller: 'CatalogoDetailController',
+                    templateUrl: 'app/entities/item-pedido/item-pedido-detail.html',
+                    controller: 'ItemPedidoDetailController',
                     controllerAs: 'vm'
                 }
             },
             resolve: {
-                entity: ['$stateParams', 'Catalogo', function($stateParams, Catalogo) {
-                    return Catalogo.get({id : $stateParams.id});
+                entity: ['$stateParams', 'ItemPedido', function($stateParams, ItemPedido) {
+                    return ItemPedido.get({id : $stateParams.id});
                 }]
             }
         })
-        .state('catalogo.new', {
-            parent: 'catalogo',
+        .state('item-pedido.new', {
+            parent: 'item-pedido',
             url: '/new',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/catalogo/catalogo-dialog.html',
-                    controller: 'CatalogoDialogController',
+                    templateUrl: 'app/entities/item-pedido/item-pedido-dialog.html',
+                    controller: 'ItemPedidoDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg',
                     resolve: {
                         entity: function () {
                             return {
-                                nome: null,
-                                descricao: null,
+                                quantidade: null,
+                                preco: null,
                                 id: null
                             };
                         }
                     }
                 }).result.then(function() {
-                    $state.go('catalogo', null, { reload: true });
+                    $state.go('item-pedido', null, { reload: true });
                 }, function() {
-                    $state.go('catalogo');
+                    $state.go('item-pedido');
                 });
             }]
         })
-        .state('catalogo.edit', {
-            parent: 'catalogo',
+        .state('item-pedido.edit', {
+            parent: 'item-pedido',
             url: '/{id}/edit',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/catalogo/catalogo-dialog.html',
-                    controller: 'CatalogoDialogController',
+                    templateUrl: 'app/entities/item-pedido/item-pedido-dialog.html',
+                    controller: 'ItemPedidoDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg',
                     resolve: {
-                        entity: ['Catalogo', function(Catalogo) {
-                            return Catalogo.get({id : $stateParams.id});
+                        entity: ['ItemPedido', function(ItemPedido) {
+                            return ItemPedido.get({id : $stateParams.id});
                         }]
                     }
                 }).result.then(function() {
-                    $state.go('catalogo', null, { reload: true });
+                    $state.go('item-pedido', null, { reload: true });
                 }, function() {
                     $state.go('^');
                 });
             }]
         })
-        .state('catalogo.delete', {
-            parent: 'catalogo',
+        .state('item-pedido.delete', {
+            parent: 'item-pedido',
             url: '/{id}/delete',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/catalogo/catalogo-delete-dialog.html',
-                    controller: 'CatalogoDeleteController',
+                    templateUrl: 'app/entities/item-pedido/item-pedido-delete-dialog.html',
+                    controller: 'ItemPedidoDeleteController',
                     controllerAs: 'vm',
                     size: 'md',
                     resolve: {
-                        entity: ['Catalogo', function(Catalogo) {
-                            return Catalogo.get({id : $stateParams.id});
+                        entity: ['ItemPedido', function(ItemPedido) {
+                            return ItemPedido.get({id : $stateParams.id});
                         }]
                     }
                 }).result.then(function() {
-                    $state.go('catalogo', null, { reload: true });
+                    $state.go('item-pedido', null, { reload: true });
                 }, function() {
                     $state.go('^');
                 });

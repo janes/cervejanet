@@ -1,0 +1,36 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "carrinho",
+      "otherEntityName": "carrinho",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipName": "produto",
+      "otherEntityName": "produto",
+      "relationshipType": "one-to-one",
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "itemPedido"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "quantidade",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "preco",
+      "fieldType": "Double"
+    }
+  ],
+  "changelogDate": "20160510114203",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no"
+}

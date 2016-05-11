@@ -1,9 +1,12 @@
 package br.com.ipt.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -26,6 +29,9 @@ public class Carrinho implements Serializable {
     @Column(name = "cliente_id")
     private Long clienteId;
 
+    @OneToMany(mappedBy = "carrinho")
+    private Set<ItemPedido> itemPedidos = new HashSet<>();
+
     public Long getId() {
         return id;
     }
@@ -40,6 +46,14 @@ public class Carrinho implements Serializable {
 
     public void setClienteId(Long clienteId) {
         this.clienteId = clienteId;
+    }
+
+    public Set<ItemPedido> getItemPedidos() {
+        return itemPedidos;
+    }
+
+    public void setItemPedidos(Set<ItemPedido> itemPedidos) {
+        this.itemPedidos = itemPedidos;
     }
 
     @Override

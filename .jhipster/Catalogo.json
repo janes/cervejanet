@@ -23,6 +23,5 @@
   "changelogDate": "20160508011204",
   "dto": "mapstruct",
   "pagination": "no",
-  "service": "no",
-  "javadoc": "The Employee entity."
+  "service": "no"
 }
