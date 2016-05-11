@@ -28,9 +28,9 @@
 
         <div class="form-group">
             <label for="field_carrinho">Carrinho</label>
-            <select class="form-control" id="field_carrinho" name="carrinho" ng-model="vm.itemPedido.carrinho" ng-options="carrinho as carrinho.id for carrinho in vm.carrinhos track by carrinho.id">
-                <option value=""></option>
-            </select>
+            <input type="number" class="form-control" name="carrinho" id="field_carrinho"
+                    ng-model="vm.itemPedido.carrinho"
+             />
         </div>
         <div class="form-group">
             <label for="field_produto">Produto</label>

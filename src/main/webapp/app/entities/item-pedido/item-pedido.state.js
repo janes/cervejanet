@@ -48,7 +48,7 @@
         })
         .state('item-pedido.new', {
             parent: 'item-pedido',
-            url: '/new',
+            url: '/new:produto_id?',
             data: {
                 authorities: ['ROLE_USER']
             },

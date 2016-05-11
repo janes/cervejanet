@@ -5,12 +5,17 @@
         .module('cervejanetApp')
         .controller('ItemPedidoDialogController', ItemPedidoDialogController);
 
-    ItemPedidoDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'ItemPedido', 'Carrinho', 'Produto'];
+    ItemPedidoDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'ItemPedido', 'Carrinho', 'Produto', '$log'];
 
-    function ItemPedidoDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, entity, ItemPedido, Carrinho, Produto) {
+    function ItemPedidoDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, entity, ItemPedido, Carrinho, Produto, $log) {
         var vm = this;
         vm.itemPedido = entity;
-        vm.carrinhos = Carrinho.query();
+        $log.log($stateParams);
+        //verifica se ja existe um carrinho para usuario, se nao existir cria
+        //utilizar o login do usaurio como chave?
+        
+        vm.carrinho = Carrinho.get({id : '1'});
+        $log.log(vm.carrinho.id);
         vm.produtos = Produto.query({filter: 'itempedido-is-null'});
         $q.all([vm.itemPedido.$promise, vm.produtos.$promise]).then(function() {
             if (!vm.itemPedido.produto || !vm.itemPedido.produto.id) {
