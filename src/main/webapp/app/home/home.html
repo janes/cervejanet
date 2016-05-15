@@ -5,7 +5,7 @@
 
 	<ul class="media-list">
 		<li class="media"
-			ng-repeat="produto in vm.produtos track by produto.id">
+			ng-repeat="produto in vm.produtos">
 
 
 			<div class="row">
@@ -17,16 +17,10 @@
 						<div class="caption">
 
 							<h2>R$ {{produto.preco}}</h2>
-							<p>
-								<a href="#" class="btn btn-primary" ng-click="addToCart(produto.id)" role="button">Adicionar
-									no Carrinho</a>
-							</p>
-
-
-							<button type="submit" ui-sref="item-pedido.new({produto_id: produto.id})"
-								 class="btn btn-success">Adicionar
+							<button type="submit"
+                                   ng-click="vm.addToCart(produto)" 
+                                   class="btn btn-success">Adicionar
 								no Carrinho</button>
-								
 
 						</div>
 					</div>

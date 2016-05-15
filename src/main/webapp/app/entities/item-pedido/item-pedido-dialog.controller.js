@@ -5,31 +5,27 @@
         .module('cervejanetApp')
         .controller('ItemPedidoDialogController', ItemPedidoDialogController);
 
-    ItemPedidoDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'ItemPedido', 'Carrinho', 'Produto', '$log'];
+    ItemPedidoDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'ItemPedido', 'Carrinho', 'Produto', '$log', '$rootScope'];
 
-    function ItemPedidoDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, entity, ItemPedido, Carrinho, Produto, $log) {
-        var vm = this;
-        vm.itemPedido = entity;
-        $log.log($stateParams);
+    function ItemPedidoDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, entity, ItemPedido, Carrinho, Produto, $log, $rootScope) {
+    	 var vm = this;
+         vm.itemPedido = entity;
+         
+         //verifica se ja existe este item de pedido no carrinho
+         
+         
+         vm.itemPedido.produto = Produto.get({id : vm.itemPedido.produto.id});
+         vm.itemPedido.carrinho = $rootScope.carrinho;
+         
+         vm.itemPedido.preco = 
+         
         //verifica se ja existe um carrinho para usuario, se nao existir cria
         //utilizar o login do usaurio como chave?
+         $rootScope.carrinho.itemPedidos.push( vm.itemPedido);
+         $log.log($rootScope.carrinho);
         
-        vm.carrinho = Carrinho.get({id : '1'});
-        $log.log(vm.carrinho.id);
-        vm.produtos = Produto.query({filter: 'itempedido-is-null'});
-        $q.all([vm.itemPedido.$promise, vm.produtos.$promise]).then(function() {
-            if (!vm.itemPedido.produto || !vm.itemPedido.produto.id) {
-                return $q.reject();
-            }
-            return Produto.get({id : vm.itemPedido.produto.id}).$promise;
-        }).then(function(produto) {
-            vm.produtos.push(produto);
-        });
-
-        $timeout(function (){
-            angular.element('.form-group:eq(1)>input').focus();
-        });
-
+        
+        
         var onSaveSuccess = function (result) {
             $scope.$emit('cervejanetApp:itemPedidoUpdate', result);
             $uibModalInstance.close(result);

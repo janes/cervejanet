@@ -48,11 +48,11 @@
         })
         .state('item-pedido.new', {
             parent: 'item-pedido',
-            url: '/new:produto_id?',
+            url: '/new/:id',
             data: {
                 authorities: ['ROLE_USER']
             },
-            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+            onEnter: ['$stateParams', '$state', '$uibModal', 'Produto', function($stateParams, $state, $uibModal, $Produto) {
                 $uibModal.open({
                     templateUrl: 'app/entities/item-pedido/item-pedido-dialog.html',
                     controller: 'ItemPedidoDialogController',
@@ -62,9 +62,12 @@
                     resolve: {
                         entity: function () {
                             return {
-                                quantidade: null,
+                                quantidade: 1,
                                 preco: null,
-                                id: null
+                                id: null,
+                                produto : {
+                                	id: $stateParams.id
+                                }
                             };
                         }
                     }
