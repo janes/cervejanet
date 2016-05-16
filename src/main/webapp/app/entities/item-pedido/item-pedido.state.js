@@ -109,15 +109,19 @@
             data: {
                 authorities: ['ROLE_USER']
             },
-            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+            onEnter: ['$stateParams', '$state', '$uibModal', '$rootScope', function($stateParams, $state, $uibModal,$rootScope) {
                 $uibModal.open({
                     templateUrl: 'app/entities/item-pedido/item-pedido-delete-dialog.html',
                     controller: 'ItemPedidoDeleteController',
                     controllerAs: 'vm',
                     size: 'md',
                     resolve: {
-                        entity: ['ItemPedido', function(ItemPedido) {
-                            return ItemPedido.get({id : $stateParams.id});
+                        entity: ['ItemPedido', function() {
+                        	
+                        	var itemPedido = $rootScope.carrinho.itemPedidos.filter(function(item) {
+                        	    return item.produto.id == $stateParams.id ;
+                        	});
+                            return itemPedido[0];
                         }]
                     }
                 }).result.then(function() {

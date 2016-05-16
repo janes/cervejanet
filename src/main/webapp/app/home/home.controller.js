@@ -38,12 +38,15 @@
         		vm.itemPedido.produto = produto;
         		vm.itemPedido.quantidade = vm.itemPedido.quantidade +1;
         	}else{
-        		vm.itemPedido = { quantidade: 1, produto: produto };
+        		vm.itemPedido = { quantidade: 1, preco:produto.preco  ,produto: produto };
         		$rootScope.carrinho.itemPedidos.push(vm.itemPedido)
         	}
         	$log.log(vm.itemPedido)
            };
            
+         vm.getImage = function(produto) { 
+        	 return produto.image;
+         }
                
         /*$scope.addToCart = function(product) {
         	//$log.log(product);

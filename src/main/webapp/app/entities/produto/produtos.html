@@ -34,7 +34,7 @@
                     <td><a ui-sref="produto-detail({id:produto.id})">{{produto.id}}</a></td>
                     <td>{{produto.nome}}</td>
                     <td>{{produto.descricao}}</td>
-                    <td>{{produto.preco}}</td>
+                    <td>{{produto.preco | currency}}</td>
                     <td>{{produto.quantidade}}</td>
                     <td>{{produto.categoria}}</td>
                     <td>{{produto.imagem}}</td>
