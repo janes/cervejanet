@@ -19,7 +19,7 @@
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                     <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by=u"nome"><span>Nome</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="nome"><span>Nome</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="descricao"><span>Descricao</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="preco"><span>Preco</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="quantidade"><span>Quantidade</span> <span class="glyphicon glyphicon-sort"></span></th>
@@ -34,7 +34,7 @@
                     <td><a ui-sref="produto-detail({id:produto.id})">{{produto.id}}</a></td>
                     <td>{{produto.nome}}</td>
                     <td>{{produto.descricao}}</td>
-                    <td>{{produto.preco}}</td>
+                    <td>{{produto.preco | currency}}</td>
                     <td>{{produto.quantidade}}</td>
                     <td>{{produto.categoria}}</td>
                     <td>{{produto.imagem}}</td>

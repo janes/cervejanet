@@ -1,5 +1,13 @@
 {
-  "relationships": [],
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "itemPedido",
+      "otherEntityName": "itemPedido",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "carrinho"
+    }
+  ],
   "fields": [
     {
       "fieldId": 1,

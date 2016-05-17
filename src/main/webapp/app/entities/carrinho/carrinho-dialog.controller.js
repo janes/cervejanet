@@ -5,11 +5,12 @@
         .module('cervejanetApp')
         .controller('CarrinhoDialogController', CarrinhoDialogController);
 
-    CarrinhoDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Carrinho'];
+    CarrinhoDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Carrinho', 'ItemPedido'];
 
-    function CarrinhoDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Carrinho) {
+    function CarrinhoDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Carrinho, ItemPedido) {
         var vm = this;
         vm.carrinho = entity;
+        vm.itempedidos = ItemPedido.query();
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();

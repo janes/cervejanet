@@ -5,20 +5,18 @@
         .module('cervejanetApp')
         .controller('CarrinhoController', CarrinhoController);
 
-    CarrinhoController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Carrinho'];
+    CarrinhoController.$inject = ['$scope', '$state', 'Carrinho'];
 
-    function CarrinhoController($scope, $rootScope, $stateParams, entity, Carrinho) {
+    function CarrinhoController ($scope, $state, Carrinho) {
         var vm = this;
-        vm.carrinho = entity;
-        
-        var unsubscribe = $rootScope.$on('cervejanetApp:carrinhoUpdate', function(event, result) {
-            vm.carrinho = result;
-        });
-        $scope.$on('$destroy', unsubscribe);
-        
-        $scope.addToCart = function(product_id) {
-          console.log(product_id)
+        vm.carrinhos = [];
+        vm.loadAll = function() {
+            Carrinho.query(function(result) {
+                vm.carrinhos = result;
+            });
         };
 
+        vm.loadAll();
+        
     }
 })();

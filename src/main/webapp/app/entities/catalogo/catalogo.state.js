@@ -13,7 +13,7 @@
             parent: 'entity',
             url: '/catalogo',
             data: {
-                authorities: ['ROLE_ADMIN'],
+                authorities: ['ROLE_USER'],
                 pageTitle: 'Catalogos'
             },
             views: {
@@ -30,7 +30,7 @@
             parent: 'entity',
             url: '/catalogo/{id}',
             data: {
-                authorities: ['ROLE_ADMIN'],
+                authorities: ['ROLE_USER'],
                 pageTitle: 'Catalogo'
             },
             views: {
@@ -50,7 +50,7 @@
             parent: 'catalogo',
             url: '/new',
             data: {
-                authorities: ['ROLE_ADMIN']
+                authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -79,7 +79,7 @@
             parent: 'catalogo',
             url: '/{id}/edit',
             data: {
-                authorities: ['ROLE_ADMIN']
+                authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -104,7 +104,7 @@
             parent: 'catalogo',
             url: '/{id}/delete',
             data: {
-                authorities: ['ROLE_ADMIN']
+                authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({

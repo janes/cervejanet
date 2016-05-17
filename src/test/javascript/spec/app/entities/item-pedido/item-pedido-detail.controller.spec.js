@@ -2,35 +2,37 @@
 
 describe('Controller Tests', function() {
 
-    describe('Carrinho Management Detail Controller', function() {
+    describe('ItemPedido Management Detail Controller', function() {
         var $scope, $rootScope;
-        var MockEntity, MockCarrinho, MockItemPedido;
+        var MockEntity, MockItemPedido, MockCarrinho, MockProduto;
         var createController;
 
         beforeEach(inject(function($injector) {
             $rootScope = $injector.get('$rootScope');
             $scope = $rootScope.$new();
             MockEntity = jasmine.createSpy('MockEntity');
-            MockCarrinho = jasmine.createSpy('MockCarrinho');
             MockItemPedido = jasmine.createSpy('MockItemPedido');
+            MockCarrinho = jasmine.createSpy('MockCarrinho');
+            MockProduto = jasmine.createSpy('MockProduto');
             
 
             var locals = {
                 '$scope': $scope,
                 '$rootScope': $rootScope,
                 'entity': MockEntity ,
+                'ItemPedido': MockItemPedido,
                 'Carrinho': MockCarrinho,
-                'ItemPedido': MockItemPedido
+                'Produto': MockProduto
             };
             createController = function() {
-                $injector.get('$controller')("CarrinhoDetailController", locals);
+                $injector.get('$controller')("ItemPedidoDetailController", locals);
             };
         }));
 
 
         describe('Root Scope Listening', function() {
             it('Unregisters root scope listener upon scope destruction', function() {
-                var eventType = 'cervejanetApp:carrinhoUpdate';
+                var eventType = 'cervejanetApp:itemPedidoUpdate';
 
                 createController();
                 expect($rootScope.$$listenerCount[eventType]).toEqual(1);
