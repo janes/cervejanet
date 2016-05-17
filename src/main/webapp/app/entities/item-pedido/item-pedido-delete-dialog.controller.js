@@ -14,10 +14,9 @@
             $uibModalInstance.dismiss('cancel');
         };
         vm.confirmDelete = function (id) {
+        	$log.log(id);
+        	_.pullAllWith($rootScope.carrinho.itemPedidos, [{ 'produto': { 'id': id }}], _.isEqual);
         	$log.log($rootScope.carrinho.itemPedidos);
-            $rootScope.carrinho.itemPedidos = $rootScope.carrinho.itemPedidos.filter(function(item) {
-            	return item.produto.id == id;
-        	});
             $uibModalInstance.close(true);
             return $rootScope.carrinho.itemPedidos;
         };

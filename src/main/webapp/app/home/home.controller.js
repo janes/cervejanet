@@ -38,7 +38,7 @@
         		vm.itemPedido.produto = produto;
         		vm.itemPedido.quantidade = vm.itemPedido.quantidade +1;
         	}else{
-        		vm.itemPedido = { quantidade: 1, preco:produto.preco  ,produto: produto };
+        		vm.itemPedido = { quantidade: 1, preco:produto.preco ,produto: produto };
         		$rootScope.carrinho.itemPedidos.push(vm.itemPedido)
         	}
         	$log.log(vm.itemPedido)
