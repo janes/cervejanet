@@ -14,11 +14,12 @@
             $uibModalInstance.dismiss('cancel');
         };
         vm.confirmDelete = function (id) {
-        	$log.log(id);
-        	_.pullAllWith($rootScope.carrinho.itemPedidos, [{ 'produto': { 'id': id }}], _.isEqual);
-        	$log.log($rootScope.carrinho.itemPedidos);
+        	var pedido = $rootScope.carrinho.itemPedidos.filter(function (item) {
+        	    return id != item.id;
+        	});
+        	$rootScope.carrinho.itemPedidos = pedido;
             $uibModalInstance.close(true);
-            return $rootScope.carrinho.itemPedidos;
+            return pedido;
         };
         
     }

@@ -119,7 +119,7 @@
                         entity: ['ItemPedido', function() {
                         	
                         	var itemPedido = $rootScope.carrinho.itemPedidos.filter(function(item) {
-                        	    return item.produto.id == $stateParams.id ;
+                        	    return item.id == $stateParams.id ;
                         	});
                             return itemPedido[0];
                         }]
