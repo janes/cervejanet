@@ -66,6 +66,26 @@
                 }]
             }
         })
+        .state('produto-preview', {
+            parent: 'entity',
+            url: '/produto-preview/{id}',
+            data: {
+                authorities: [],
+                pageTitle: 'Produto'
+            },
+            views: {
+                'content@': {
+                    templateUrl: 'app/entities/produto/produto-preview.html',
+                    controller: 'ProdutoPreviewController',
+                    controllerAs: 'vm'
+                }
+            },
+            resolve: {
+                entity: ['$stateParams', 'Home', function($stateParams, Home) {
+                    return Home.get({id : $stateParams.id});
+                }]
+            }
+        })
         .state('produto.new', {
             parent: 'produto',
             url: '/new',

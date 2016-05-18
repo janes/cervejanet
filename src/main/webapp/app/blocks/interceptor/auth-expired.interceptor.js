@@ -16,9 +16,10 @@
         return service;
 
         function responseError(response) {
+        	console.log(response);
             // If we have an unauthorized request we redirect to the login page
             // Don't do this check on the account API to avoid infinite loop
-            if (response.status === 401 && angular.isDefined(response.data.path) && response.data.path.indexOf('/api/account') === -1) {
+            if (response.status === 401 && angular.isDefined(response.data.path) && response.data.path.indexOf('/api/account') === -1 ) {
                 var Auth = $injector.get('Auth');
                 var to = $rootScope.toState;
                 var params = $rootScope.toStateParams;

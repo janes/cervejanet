@@ -16,13 +16,6 @@
         return directive;
 
         function linkFunc(scope, element, attrs) {
-            ProfileService.getProfileInfo().then(function(response) {
-                if (response.ribbonEnv) {
-                    scope.ribbonEnv = response.ribbonEnv;
-                    element.addClass(response.ribbonEnv);
-                    element.removeClass('hidden');
-                }
-            });
         }
     }
 })();
