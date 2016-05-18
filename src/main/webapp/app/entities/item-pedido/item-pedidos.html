@@ -16,7 +16,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="itemPedido in vm.itemPedidos track by itemPedido.produto.id">
+                <tr ng-repeat="itemPedido in vm.itemPedidos track by itemPedido.id">
                     <td>{{itemPedido.quantidade}}</td>
                     <td>{{itemPedido.preco * itemPedido.quantidade | currency}}</td>
                     <td>
