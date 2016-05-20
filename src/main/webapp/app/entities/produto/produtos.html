@@ -7,7 +7,7 @@
                 <button class="btn btn-primary" ui-sref="produto.new" >
                     <span class="glyphicon glyphicon-plus"></span>
                     <span >
-                        Create new Produto
+                        Criar novo Produto
                     </span>
                 </button>
             </div>
@@ -29,15 +29,20 @@
                     <th></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody >
                 <tr ng-repeat="produto in vm.produtos track by produto.id">
                     <td><a ui-sref="produto-detail({id:produto.id})">{{produto.id}}</a></td>
                     <td>{{produto.nome}}</td>
-                    <td>{{produto.descricao}}</td>
+                    <td >{{produto.descricao}}</td>
                     <td>{{produto.preco | currency}}</td>
                     <td>{{produto.quantidade}}</td>
                     <td>{{produto.categoria}}</td>
-                    <td>{{produto.imagem}}</td>
+                    <td>
+                    <div class="thumbnail">
+							<img ng-src={{produto.imagem}}>
+					</div>
+					
+					</td>
                     <td>
                         <a ui-sref="catalogo-detail({id:produto.catalogo.id})">{{produto.catalogo.nome}}</a>
                     </td>

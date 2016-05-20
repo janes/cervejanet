@@ -9,17 +9,22 @@
         <table class="jh-table table table-striped">
             <thead>
                 <tr>
-                    <th><span>Quantidade</span></th>
-                    <th><span>Preco</span></th>
                     <th><span>Produto</span></th>
-                    <th></th>
+                    <th><span></span></th>
+                    <th><span>Preco</span></th>
+                    <th><span>Quantidade</span></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="itemPedido in vm.itemPedidos track by itemPedido.id">
-                    <td>{{itemPedido.quantidade}}</td>
-                    <td>{{itemPedido.preco * itemPedido.quantidade | currency}}</td>
-						<td>{{itemPedido.produto.nome}}</td>
+						<td>
+                    <div class="thumbnail">
+							<img ng-src={{itemPedido.produto.imagem}}>
+					</div>
+					</td>
+					<td>{{itemPedido.produto.nome}}</td>
+					<td>{{itemPedido.preco * itemPedido.quantidade | currency}}</td>
+					 <td>{{itemPedido.quantidade}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

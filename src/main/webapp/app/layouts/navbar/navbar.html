@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-inverse" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" ng-click="vm.toggleNavbar()">
@@ -7,7 +7,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#/" ng-click="vm.collapseNavbar()"><span>Cervejanet</span> <span class="navbar-version">v{{VERSION}}</span></a>
+            <a class="navbar-brand" href="#/" ng-click="vm.collapseNavbar()"><span>Cervejanet</span></a>
         </div>
         <div class="navbar-collapse" uib-collapse="vm.isNavbarCollapsed" ng-switch="vm.isAuthenticated()">
             <ul class="nav navbar-nav navbar-right">
@@ -154,11 +154,14 @@
                         </li>
                     </ul>
                 </li> -->
-            	 <li ui-sref-active="active" >
-                            <a ui-sref="item-pedido" ng-click="vm.collapseNavbar()"  class="btn btn-default btn-sm">
-                               <span class="glyphicon glyphicon-shopping-cart"> Carrinho</span>
-                            </a>
-                        </li>
+                 <li ui-sref-active="active">
+                    <a ui-sref="item-pedido" ng-click="vm.collapseNavbar()">
+                        <span class="glyphicon glyphicon-shopping-cart"></span>
+                        <span class="hidden-sm">Carrinho</span>
+                    </a>
+                </li>
+                
+            	
                         
             </ul>
         </div>

@@ -320,3 +320,59 @@ ui bootstrap tweaks
 
 
 /* jhipster-needle-css-add-main JHipster will add new css style */
+
+
+#carousel_combina .carousel-inner {
+    width: 83.3333%
+}
+#carousel_combina .carousel-inner>.next,
+#carousel_combina .carousel-inner>.prev {
+    position: initial
+}
+#carousel_combina .arrow_n {
+    margin-top: 115%;
+    position: absolute
+}
+.productGallery {
+    display: none!important
+}
+.carousel-inner .productGallery {
+    display: block!important;
+    max-width: 400px;
+    width: 100%
+}
+
+#carousel_single_prod .arrow_n_left,
+#carousel_single_prod .arrow_n_right,
+#carousel_single_prod .arrow_n,
+#carousel_single_prod .carousel-inner {
+    border: 3px solid #eeebdb
+}
+
+#carousel_cervejas .carousel-indicators,
+#carousel_kits .carousel-indicators,
+#carousel_acessorios .carousel-indicators {
+    bottom: -5px
+}
+#carousel_cervejas .carousel-indicators li,
+#carousel_kits .carousel-indicators li,
+#carousel_acessorios .carousel-indicators li {
+    background-color: #573522;
+    border: 1px solid #573522
+}
+#carousel_cervejas .carousel-indicators .active,
+#carousel_kits .carousel-indicators .active,
+#carousel_acessorios .carousel-indicators .active {
+    background-color: #bd5f00;
+    border: 1px solid #bd5f00
+}
+
+.thumbnail{        
+    width: 200px; // or you could use percentage value for responsive layout
+    height: 400px;
+    overflow: auto;
+}
+
+.thumbnail img{
+}
+

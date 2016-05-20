@@ -1,69 +1,29 @@
-<div >
-	<h2>Lista de Produtos</h2>
+<div>
 	<jhi-alert></jhi-alert>
 	<br />
+	<div class="carousel-inner">
+		<div class="prateleira vitrine n4colunas">
+			<div class="cervejas "
+				ng-repeat="produto in vm.produtos track by produto.id">
 
-	<ul class="media-list">
-		<li class="media"
-			ng-repeat="produto in vm.produtos" ng-if="$index % 3 == 0">
+					<div class="col-sm-6 col-md-4">
 
+						<div class="thumbnail">
+							<h3>{{produto.nome}}</h3>
+							<img ng-src={{produto.imagem}}>
+							<div class="caption">
 
-			<div class="row">
-				<div class="col-sm-6 col-md-4">
+								<h2>{{produto.preco | currency}}</h2>
+								<button type="submit" ng-click="vm.addToCart(produto)"
+									ui-sref="item-pedido" class="btn btn-success">Adicionar
+									no Carrinho</button>
 
-					<div class="thumbnail">
-						<h3>{{vm.produtos[$index].nome}}</h3>
-						<img ng-src={{vm.produtos[$index].imagem}}>
-						<div class="caption">
-
-							<h2>{{vm.produtos[$index].preco | currency}}</h2>
-							<button type="submit"
-                                   ng-click="vm.addToCart(vm.produtos[$index])"
-                                   ui-sref="item-pedido" 
-                                   class="btn btn-success">Adicionar
-								no Carrinho</button>
-
+							</div>
 						</div>
 					</div>
-				</div>
-				<div ng-if="vm.produtos.length > ($index+1)" class="col-sm-6 col-md-4">
 
-					<div class="thumbnail">
-						<h3 >{{vm.produtos[$index+1].nome}}</h3>
-						<img ng-src={{vm.produtos[$index+1].imagem}}>
-						<div class="caption">
 
-							<h2>{{vm.produtos[$index+1].preco | currency}}</h2>
-							<button type="submit"
-                                   ng-click="vm.addToCart(vm.produtos[$index+1])" 
-                                   ui-sref="item-pedido"
-                                   class="btn btn-success">Adicionar
-								no Carrinho</button>
-
-						</div>
-					</div>
-				</div>
-				<div ng-if="vm.produtos.length > ($index+2)" class="col-sm-6 col-md-4">
-
-					<div class="thumbnail">
-						<h3>{{vm.produtos[$index+2].nome}}</h3>
-						<img ng-src={{vm.produtos[$index+2].imagem}}>
-						<div class="caption">
-
-							<h2>{{vm.produtos[$index+2].preco | currency}}</h2>
-							<button type="submit"
-                                   ng-click="vm.addToCart(vm.produtos[$index+2])"
-                                   ui-sref="item-pedido"
-                                   class="btn btn-success">Adicionar
-								no Carrinho</button>
-
-						</div>
-					</div>
-				</div>
 			</div>
-
-
-		</li>
-	</ul>
+		</div>
+	</div>
 </div>
-
