@@ -19,9 +19,7 @@
                 <tr ng-repeat="itemPedido in vm.itemPedidos track by itemPedido.id">
                     <td>{{itemPedido.quantidade}}</td>
                     <td>{{itemPedido.preco * itemPedido.quantidade | currency}}</td>
-                    <td>
-                        <a ui-sref="produto-detail({id:itemPedido.produto.id})">{{itemPedido.produto.nome}}</a>
-                    </td>
+						<td>{{itemPedido.produto.nome}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
@@ -38,5 +36,13 @@
                 </tr>
             </tbody>
         </table>
+        
+         <div class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                		<button type="submit"
+                                   ui-sref="carrinho-detail()"
+                                   class="btn btn-success">Concluir Pedido</button>
+				    </div>
+                 </div>
     </div>
 </div>

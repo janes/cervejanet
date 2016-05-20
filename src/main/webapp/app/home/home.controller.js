@@ -5,16 +5,13 @@
         .module('cervejanetApp')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', '$state', 'Produto', '$log', 'Principal', 'Carrinho', '$rootScope'];
+    HomeController.$inject = ['$scope', '$state', 'Home', '$log',  '$rootScope'];
 
-    function HomeController ($scope, $state, Produto, $log, Principal, Carrinho, $rootScope) {
+    function HomeController ($scope, $state, Home, $log,   $rootScope) {
         var vm = this;
-       /* Principal.identity().then(function(account) {
-            vm.account = account;
-        });*/
         vm.produtos = [];
         vm.loadAll = function() {
-        	Produto.query(function(result) {
+        	Home.query(function(result) {
                 vm.produtos = result;
                 $scope.produtos = result;
             });
@@ -44,11 +41,6 @@
         	$log.log(vm.itemPedido)
            };
            
-        /*$scope.addToCart = function(product) {
-        	//$log.log(product);
-        	Carrinho.update(product)
-            //$log.log(JSON.stringify($scope.shoppingBasket));
-        };*/
         vm.createCart();
         vm.loadAll();
     }

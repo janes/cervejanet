@@ -13,7 +13,7 @@
             parent: 'entity',
             url: '/item-pedido',
             data: {
-                authorities: ['ROLE_USER'],
+                authorities: [],
                 pageTitle: 'ItemPedidos'
             },
             views: {
@@ -107,7 +107,7 @@
             parent: 'item-pedido',
             url: '/{id}/delete',
             data: {
-                authorities: ['ROLE_USER']
+                authorities: []
             },
             onEnter: ['$stateParams', '$state', '$uibModal', '$rootScope', function($stateParams, $state, $uibModal,$rootScope) {
                 $uibModal.open({
